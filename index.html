@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Maria</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .box-container {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gift-box {
+      width: 150px;
+      height: 150px;
+      background: #ff69b4;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .gift-box::before, .gift-box::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+    }
+
+    .gift-box::before {
+      width: 20px;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .gift-box::after {
+      height: 20px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lid {
+      position: absolute;
+      top: -40px;
+      width: 150px;
+      height: 40px;
+      background: #ff69b4;
+      border-radius: 10px 10px 0 0;
+      transition: 0.5s;
+      z-index: 2;
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: white;
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      font-size: 24px;
+      color: #ff1493;
+      transition: transform 0.5s ease;
+      z-index: 3;
+    }
+
+    .box-container.open .lid {
+      transform: rotateX(180deg) translateY(-60px);
+    }
+
+    .box-container.open .message {
+      transform: translate(-50%, -50%) scale(1);
+    }
+</style>
+</head>
+<body>
+  <div class="box-container" onclick="openBox()">
+    <div class="lid"></div>
+    <div class="gift-box"></div>
+    <div class="message">Happy Birthday Maria!</div>
+  </div>
+
+  <script>
+    function openBox() {
+      document.querySelector('.box-container').classList.add('open');
+    }
+  </script>
+</body>
+</html>
